@@ -1,38 +1,26 @@
+import styles from "./HangmanWord.module.css"
+
 type HangmanWordProps = {
-    guessedLetters: string[]
-    wordtoGuess: string
-    reveal?: boolean
+  guessedLetters: string[]
+  wordToGuess: string
+  reveal?: boolean
+  shake?: boolean
 }
 
-export function HangmanWord({ guessedLetters, wordtoGuess, reveal = false }:HangmanWordProps){
-    return (
-        <div style={{
-        display: "flex",
-        gap: "0.25em",
-        fontSize: "6rem",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-        fontFamily: "monospace",
-        }} 
-    >{wordtoGuess.split("").map((letter, index) => {
+export function HangmanWord({ guessedLetters, wordToGuess, reveal = false, shake = false }: HangmanWordProps) {
+  return (
+    <div className={`${styles.wordRow} ${shake ? styles.shake : ""}`}>
+      {wordToGuess.split("").map((letter, i) => {
+        const isGuessed  = guessedLetters.includes(letter)
+        const isRevealed = reveal && !isGuessed
         return (
-            <span style={{
-                borderBottom: ".1em solid black",
-            }}>
-            <span key={index} style={{
-                visibility: guessedLetters.includes(letter) || reveal
-                    ? "visible"
-                    : "hidden",
-                    color: !guessedLetters.includes(letter) && reveal ? "red" : "black",
-
-            }}>
-            {letter}
-         </span>
-         </span>
+          <span key={i} className={styles.letterBox}>
+            <span className={`${styles.letter} ${isGuessed ? styles.letterVisible : ""} ${isRevealed ? styles.letterRevealed : ""}`}>
+              {letter}
+            </span>
+          </span>
         )
-    })}
-
+      })}
     </div>
-
-    )
+  )
 }

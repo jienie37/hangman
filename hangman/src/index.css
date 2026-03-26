@@ -1,0 +1,60 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Dark mode (default) ---- */
+:root {
+  --accent: #00f5ff;
+  --accent-glow: rgba(0, 245, 255, 0.4);
+  --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  --text: #f0f0f0;
+  --text-muted: rgba(240, 240, 240, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --part-color: #00f5ff;
+  --scaffold-color: rgba(240, 240, 240, 0.85);
+  --btn-inactive: rgba(255, 255, 255, 0.07);
+  --wrong-color: #ff4d4d;
+  --correct-color: #00f5ff;
+}
+
+/* ---- Light mode override ---- */
+body.light-mode {
+  --accent: #0057d9;
+  --accent-glow: rgba(0, 87, 217, 0.3);
+  --bg-gradient: linear-gradient(135deg, #dde8f8 0%, #c8d8f0 100%);
+  --text: #1a1a2e;
+  --text-muted: rgba(26, 26, 46, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --part-color: #cc2200;
+  --scaffold-color: #1a1a2e;
+  --btn-inactive: rgba(0, 0, 0, 0.06);
+  --wrong-color: #cc0000;
+  --correct-color: #0057d9;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.3s;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Global keyframes (used in inline styles) */
+@keyframes svgPartAppear {
+  0%   { opacity: 0; transform: scale(0.4); }
+  60%  { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}

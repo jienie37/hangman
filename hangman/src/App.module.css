@@ -1,0 +1,497 @@
+/* ===== MENU ===== */
+.menuContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.menuCard {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menuTitle {
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.titleAccent {
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--accent-glow);
+}
+
+.menuSub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: -0.75rem;
+}
+
+/* Score board */
+.scoreBoard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(12px);
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.scoreNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.scoreDivider {
+  width: 1px;
+  height: 40px;
+  background: var(--card-border);
+}
+
+/* Settings section cards */
+.settingsSection {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.settingsLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.875rem;
+  font-weight: 700;
+}
+
+/* Mode grid */
+.modeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.modeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.9rem 0.5rem;
+  background: var(--btn-inactive);
+  border: 2px solid var(--card-border);
+  border-radius: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.modeCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.modeCard:active {
+  transform: translateY(0);
+}
+
+.modeCardActive {
+  border-color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 15%, transparent) !important;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.modeEmoji {
+  font-size: 1.6rem;
+}
+
+.modeName {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.modeDesc {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* Category chips */
+.categoryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.catChip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--btn-inactive);
+  border: 2px solid var(--card-border);
+  border-radius: 100px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+
+.catChip:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.catChipActive {
+  border-color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 15%, transparent) !important;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Start button */
+.startButton {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  background: var(--accent);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.startButton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 50px var(--accent-glow);
+}
+
+.startButton:active {
+  transform: scale(0.97);
+}
+
+/* Theme toggle */
+.themeToggle {
+  background: none;
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  padding: 0.45rem 1.2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.themeToggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ===== GAME SCREEN ===== */
+.gameContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  gap: 0.6rem;
+}
+
+/* Top bar */
+.topBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+}
+
+.backButton {
+  background: none;
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.15s;
+}
+
+.backButton:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.badges {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.badge {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 100px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: capitalize;
+  letter-spacing: 0.06em;
+}
+
+.topScore {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* Blitz timer bar */
+.timerWrap {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin-top: 0.25rem;
+}
+
+.timerBar {
+  width: 100%;
+  height: 8px;
+  background: var(--card-bg);
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+
+.timerFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 100px;
+  transition: width 1s linear, background 0.4s;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.timerFillDanger {
+  background: var(--wrong-color) !important;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.5) !important;
+}
+
+.timerLabel {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-top: 0.3rem;
+  transition: color 0.3s;
+}
+
+.timerLabelDanger {
+  color: var(--wrong-color) !important;
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  to { transform: scale(1.1); }
+}
+
+/* Lives */
+.lives {
+  display: flex;
+  gap: 0.35rem;
+  font-size: 1.4rem;
+}
+
+.heartAlive {
+  filter: none;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.heartLost {
+  filter: grayscale(1);
+  opacity: 0.2;
+  transform: scale(0.75);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Game over overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.overlayCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 2.5rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  backdrop-filter: blur(24px);
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 300px;
+  max-width: 380px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.overlayEmoji {
+  font-size: 4rem;
+  animation: emojiDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes emojiDrop {
+  from { transform: scale(0) rotate(-20deg); }
+  to { transform: scale(1) rotate(0); }
+}
+
+.overlayTitle {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+  margin: 0;
+}
+
+.overlayReveal {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.overlayReveal strong {
+  color: var(--wrong-color);
+  font-size: 1.1rem;
+}
+
+.overlayStreak {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.overlayActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.playAgainBtn {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: var(--accent);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.playAgainBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.menuOutlineBtn {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: none;
+  border: 2px solid var(--card-border);
+  border-radius: 100px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.menuOutlineBtn:hover {
+  border-color: var(--text-muted);
+}
+
+/* Hint button */
+.hintButton {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 200, 0, 0.08);
+  border: 1px solid rgba(255, 200, 0, 0.3);
+  border-radius: 100px;
+  color: #ffc800;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hintButton:hover {
+  background: rgba(255, 200, 0, 0.16);
+  box-shadow: 0 0 12px rgba(255, 200, 0, 0.3);
+  transform: scale(1.03);
+}
+
+.hintCost {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+/* Keyboard area */
+.keyboardArea {
+  width: 100%;
+  max-width: 760px;
+  padding: 0 1rem;
+}
